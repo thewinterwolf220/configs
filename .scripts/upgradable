@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+count=$(apt list --upgradable 2>/dev/null | wc -l | grep -Eo '[0-9]{1,4}')
+echo $((count - 1)) to upgrade
