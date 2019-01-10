@@ -120,7 +120,7 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar
 bar {
-	font pango:Helvetica 11.5
+	font pango:Helvetica 11
 	#i3status i3blocks
 	status_command i3blocks
         position top
@@ -141,7 +141,11 @@ bindsym Mod1+n exec nautilus
 bindsym Mod1+t exec torbrowser-launcher
 bindsym Mod1+l exec libreoffice
 bindsym Mod1+p exec pycharm-community
+bindsym Mod1+y exec firefox youtube.com
+bindsym Mod1+s exec spotify
+bindsym Mod1+v exec virtualbox
 
+ 
 # i3blocks bindings
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
