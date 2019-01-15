@@ -156,4 +156,8 @@ bindsym Mod1+Down  exec --no-startup-id pactl set-sink-volume 1 -5%  # decrease 
 bindsym Mod1+space exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
 # Set wallpaper
-exec --no-startup-id feh --bg-scale ~/cool-wallpapers/dragon_starry_sky.jpg
+exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jpg
+
+bindsym $mod+Shift+s exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to exit i3?' -b 'Yes, shutdown' 'init 0'"
+
+
