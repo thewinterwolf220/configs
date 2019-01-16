@@ -121,11 +121,14 @@ fi
 alias weather='curl wttr.in/palermo'
 alias r='ranger'
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
+alias wf='watch -n 0.5 free -m'
+alias f='free -m'
+alias v='vim'
+alias n='nano'
+alias song-dl='youtube-dl -x --audio-format mp3'
+alias gst='git status'
 
 PROJECTS=/home/phoenix/IdeaProjects
 I3CONF=$HOME/.config/i3/config
 I3BLOCKS=/etc/i3blocks.conf
 SCRIPTSDIR=/home/phoenix/.scripts
-
-export SCRIPTSDIR
-export PROJECTS
