@@ -137,7 +137,7 @@ gaps outer 5
 bindsym Mod1+t      exec torbrowser-launcher
 bindsym Mod1+f      exec firefox
 bindsym Mod1+y      exec firefox youtube.com
-bindsym Mod+Shift+p exec firefox protonmail.com
+bindsym Mod1+Shift+p exec firefox protonmail.com
 bindsym Mod1+p      exec pycharm-community
 bindsym Mod1+i      exec intellij-idea-community
 bindsym Mod1+k      exec keepassxc
