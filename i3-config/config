@@ -111,6 +111,7 @@ bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 # Bindings to my programs
 bindsym Mod1+c            exec calibre
 bindsym Mod1+f            exec firefox
+bindsym Mod1+g            exec firefox github.com/thewinterwolf220
 bindsym Mod1+i            exec intellij-idea-community
 bindsym Mod1+k            exec keepassxc
 bindsym Mod1+l            exec libreoffice
