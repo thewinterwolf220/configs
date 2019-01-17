@@ -124,6 +124,11 @@ bindsym Mod1+t            exec torbrowser-launcher
 bindsym Mod1+v            exec virtualbox
 bindsym Mod1+y            exec firefox youtube.com
 
+# Connect/disconnect ProtonVPN connection in background
+# Requires user host = (root) NOPASSWD: path/to/protonvpn-cli 
+bindsym $mod+p            exec gnome-terminal -- sudo protonvpn-cli -f & 
+bindsym $mod+Shift+p      exec gnome-terminal -- sudo protonvpn-cli -d &
+
 # Set wallpaper
 exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jpg
 
