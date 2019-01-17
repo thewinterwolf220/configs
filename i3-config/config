@@ -114,7 +114,7 @@ bindsym Mod1+f            exec firefox
 bindsym Mod1+i            exec intellij-idea-community
 bindsym Mod1+k            exec keepassxc
 bindsym Mod1+l            exec libreoffice
-bindsym Mod1+m            exec --no-startup-id mailspring
+bindsym Mod1+m            exec mailspring
 bindsym Mod1+n            exec nautilus
 bindsym Mod1+p            exec pycharm-community
 bindsym Mod1+Shift+p      exec firefox protonmail.com
@@ -126,8 +126,8 @@ bindsym Mod1+y            exec firefox youtube.com
 
 # Connect/disconnect ProtonVPN connection in background
 # Requires user host = (root) NOPASSWD: path/to/protonvpn-cli 
-bindsym $mod+p            exec gnome-terminal -- sudo protonvpn-cli -f & 
-bindsym $mod+Shift+p      exec gnome-terminal -- sudo protonvpn-cli -d &
+bindsym $mod+p            exec no-startup-id gnome-terminal -- sudo protonvpn-cli -f & 
+bindsym $mod+Shift+p      exec no-startuo-id gnome-terminal -- sudo protonvpn-cli -d &
 
 # Set wallpaper
 exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jpg
