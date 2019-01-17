@@ -14,8 +14,10 @@ bar {
 
 # i3-gaps conf
 for_window [class="^.*"] border pixel 0
-gaps inner 20
-gaps outer 10
+gaps inner      20
+gaps outer      10
+smart_borders   on
+smart_gaps      on
 
 # change focus
 bindsym $mod+h            focus left
@@ -115,20 +117,21 @@ bindsym Mod1+g            exec firefox github.com/thewinterwolf220
 bindsym Mod1+i            exec intellij-idea-community
 bindsym Mod1+k            exec keepassxc
 bindsym Mod1+l            exec libreoffice
-bindsym Mod1+m            exec mailspring
+bindsym Mod1+m            exec /snap/bin/mailspring
 bindsym Mod1+n            exec nautilus
 bindsym Mod1+p            exec pycharm-community
 bindsym Mod1+Shift+p      exec firefox protonmail.com
 bindsym Mod1+r            exec gnome-terminal -- ranger
 bindsym Mod1+s            exec spotify
+bindsym Mod1+Shift+s      exec signal-desktop
 bindsym Mod1+t            exec torbrowser-launcher
 bindsym Mod1+v            exec virtualbox
 bindsym Mod1+y            exec firefox youtube.com
 
 # Connect/disconnect ProtonVPN connection in background
 # Requires user host = (root) NOPASSWD: path/to/protonvpn-cli 
-bindsym $mod+p            exec no-startup-id sudo protonvpn-cli -f 
-bindsym $mod+Shift+p      exec no-startup-id sudo protonvpn-cli -d
+bindsym $mod+p            exec --no-startup-id gnome-terminal -- sudo protonvpn-cli --fastest-connect 
+bindsym $mod+Shift+p      exec --no-startup-id gnome-terminal -- sudo protonvpn-cli -d
 
 # Set wallpaper
 exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jpg
@@ -136,3 +139,4 @@ exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jp
 # Start Mega daemon and desktop
 exec --no-startup-id megasync
 
+bindsym Mod1+d exec rofi -show run
