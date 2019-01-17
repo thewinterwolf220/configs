@@ -99,7 +99,7 @@ bindsym $mod+F2           reload
 
 bindsym $mod+i            gaps inner current plus  5
 bindsym $mod+Shift+i      gaps inner current minus 5 
-bindsym $mod+o			  gaps outer current plus  5
+bindsym $mod+o            gaps outer current plus  5
 bindsym $mod+Shift+o      gaps outer current minus 5
 
 bindsym $mod+Return       exec i3-sensible-terminal
