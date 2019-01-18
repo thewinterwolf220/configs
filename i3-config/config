@@ -7,7 +7,7 @@ font    pango:Arial 12
 bar {
 	font            pango:Helvetica 12
 	status_command  i3blocks
-    position        top
+	position        top
 	mode            dock
 	modifier        None
 }
@@ -79,11 +79,15 @@ bindsym $mod+f            fullscreen toggle
 bindsym $mod+s            layout   stacking
 bindsym $mod+w            layout   tabbed
 bindsym $mod+e            layout   toggle split   
+
 # tiling / floating  
 bindsym $mod+space        floating toggle         
 
 # exit i3
 bindsym $mod+Shift+e      exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# lock screen
+bindsym $mod+Shift+x      exec i3lock
 
 # shutdown the machine
 bindsym $mod+Shift+s      exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut.' -b 'Yes, shutdown' 'init 0'"
@@ -112,6 +116,7 @@ bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 
 # Bindings to my programs
 bindsym Mod1+c            exec calibre
+bindsym Mod1+d		  exec rofi -show run
 bindsym Mod1+f            exec firefox
 bindsym Mod1+g            exec firefox github.com/thewinterwolf220
 bindsym Mod1+i            exec intellij-idea-community
@@ -138,5 +143,3 @@ exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jp
 
 # Start Mega daemon and desktop
 exec --no-startup-id megasync
-
-bindsym Mod1+d exec rofi -show run
