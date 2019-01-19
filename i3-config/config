@@ -100,9 +100,14 @@ bindsym $mod+q            kill
 
 # preserves layout/session
 bindsym $mod+F1           restart  
+
 # reloads i3 config file
 bindsym $mod+F2           reload
 
+# Display this configuration file
+bindsym $mod+F3           exec --no-startup-id ./.scripts/configFile
+
+# i3-gaps settings
 bindsym $mod+i            gaps inner current plus  5
 bindsym $mod+Shift+i      gaps inner current minus 5 
 bindsym $mod+o            gaps outer current plus  5
@@ -113,10 +118,19 @@ bindsym $mod+Return       exec i3-sensible-terminal
 bindsym $mod+d            exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 
+
+# Assign workspace
+assign [class="vscode"]          1
+assign [class="calibre"]         2
+assign [class="g-calendar"]      3
+assign [class="mailspring"]      3
+assign [class="signal-desktop"]  3
+assign [class="spotify"]         4
+
 # Bindings to my programs
 bindsym Mod1+c            exec calibre
 bindsym Mod1+f            exec firefox
-bindsym Mod1+g		  exec /snap/bin/g-calendar
+bindsym Mod1+g            exec /snap/bin/g-calendar
 bindsym Mod1+Shift+g      exec firefox github.com/thewinterwolf220
 bindsym Mod1+i            exec intellij-idea-community
 bindsym Mod1+k            exec keepassxc
@@ -129,7 +143,8 @@ bindsym Mod1+r            exec gnome-terminal -- ranger
 bindsym Mod1+s            exec spotify
 bindsym Mod1+Shift+s      exec signal-desktop
 bindsym Mod1+t            exec torbrowser-launcher
-bindsym Mod1+v            exec virtualbox
+bindsym Mod1+v            exec /snap/bin/vscode
+bindsym Mod1+Shift+v      exec virtualbox
 bindsym Mod1+y            exec firefox youtube.com
 
 # Connect/disconnect ProtonVPN connection in background
