@@ -1,11 +1,11 @@
 # Marco's i3 config file (v4)
-
+# Please edit this file using in editingMode
 set     $mod Mod4
-font    pango:Arial 12
+font    pango:Arial 13
 
 # bar conf
 bar {
-	font            pango:Helvetica 12
+	font            pango:Helvetica 12.5
 	status_command  i3blocks
 	position        top
 	mode            dock
@@ -17,7 +17,6 @@ for_window [class="^.*"] border pixel 0
 gaps inner      20
 gaps outer      10
 smart_borders   on
-# smart_gaps      on
 
 # change focus
 bindsym $mod+h            focus left
@@ -99,13 +98,13 @@ bindsym $mod+Shift+r      exec "i3-nagbar -t warning -m 'Do you want to reboot y
 bindsym $mod+q            kill
 
 # preserves layout/session
-bindsym $mod+F1           restart  
-
-# reloads i3 config file
+bindsym $mod+F1           restart
+# reloads i3 config file, use this for changes to this file
 bindsym $mod+F2           reload
-
-# Display this configuration file
+# Display this configuration file as pdf
 bindsym $mod+F3           exec --no-startup-id ./.scripts/configFile
+# Enter editing mode, edit repo file, loads changes in .config/i3/config    
+bindsym $mod+F4           exec --no-startup-id ./.scripts/editingMode
 
 # i3-gaps settings
 bindsym $mod+i            gaps inner current plus  5
@@ -119,7 +118,7 @@ bindsym $mod+d            exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 
 
-# Assign workspace
+# Assign workspace, some don't work :/
 assign [class="vscode"]          1
 assign [class="calibre"]         2
 assign [class="g-calendar"]      3
@@ -157,3 +156,5 @@ exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jp
 
 # Start Mega daemon and desktop
 exec --no-startup-id megasync
+exec --no-startup-id cd configs/i3-config/ ; ag -l | entr cp config ~/.config/i3/config
+
