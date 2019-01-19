@@ -117,17 +117,18 @@ if ! shopt -oq posix; then
 fi
 
 # My changes 
-
 alias weather='curl wttr.in/palermo'
 alias r='ranger'
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 alias scanimage='scanimage -d epson2:libusb:001:009 '
 alias song-dl='youtube-dl --extract-audio --audio-format mp3'
-alias gst='git status'
 alias n='nano'
 alias v='vim'
+# Git aliases
+alias gst='git status'
 alias gpu='git push'
 alias gco='git commit -m'
+alias gad='git add .'
 
 export TERMINAL='gnome-terminal'
 export PROJECTS=/home/phoenix/IdeaProjects

@@ -104,7 +104,7 @@ bindsym $mod+F2           reload
 # Display this configuration file as pdf
 bindsym $mod+F3           exec --no-startup-id ./.scripts/configFile
 # Enter editing mode, edit repo file, loads changes in .config/i3/config    
-bindsym $mod+F4           exec --no-startup-id ./.scripts/editingMode
+bindsym $mod+F4           exec --no-startup-id gnome-terminal -- nano ~/configs/i3-config/config 
 
 # i3-gaps settings
 bindsym $mod+i            gaps inner current plus  5
@@ -156,5 +156,7 @@ exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jp
 
 # Start Mega daemon and desktop
 exec --no-startup-id megasync
-exec --no-startup-id cd configs/i3-config/ ; ag -l | entr cp config ~/.config/i3/config
 
+# Loads changes in this file
+exec --no-startup-id cd configs/i3-config ; ag -l | entr cp config ~/.config/i3/config
+exec --no-startup-id cd configs/i3-config ; ag -l | entr i3 reload
