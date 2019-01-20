@@ -1,12 +1,12 @@
 # Marco's i3 config file (v4)
-# Please edit this file using in editingMode
+
 set     $mod Mod4
 font    pango:Arial 13
 
 # bar conf
 bar {
-	font            pango:Helvetica 12.5
-	status_command  i3blocks
+	font            pango:Helvetica 12
+	status_command  i3blocks -c ~/.config/i3blocks/i3blocks.conf
 	position        top
 	mode            dock
 	modifier        None
@@ -94,21 +94,33 @@ bindsym $mod+Shift+s      exec "i3-nagbar -t warning -m 'You pressed the shutdow
 # reboot the machine
 bindsym $mod+Shift+r      exec "i3-nagbar -t warning -m 'Do you want to reboot your machine?.' -b 'Yes, reboot' 'init 6'"
 
-# close focus instance 
+# close focus instance
 bindsym $mod+q            kill
 
 # preserves layout/session
 bindsym $mod+F1           restart
 # reloads i3 config file, use this for changes to this file
 bindsym $mod+F2           reload
-# Display this configuration file as pdf
-bindsym $mod+F3           exec --no-startup-id ./.scripts/configFile
-# Enter editing mode, edit repo file, loads changes in .config/i3/config    
-bindsym $mod+F4           exec --no-startup-id gnome-terminal -- nano ~/configs/i3-config/config 
+#
+bindsym $mod+F3           exec --no-startup-id source .bashrc
+
+
+# Enter editing mode, edit repo file, loads changes in .config/i3/config   
+bindsym $mod+F5           exec --no-startup-id gnome-terminal -- nano ~/configs/i3-config/config
+bindsym $mod+Shift+F5     exec --no-startup-id ./.scripts/configFile config
+bindsym $mod+F6           exec --no-startup-id gnome-terminal -- nano ~/configs/i3blocks.conf
+bindsym $mod+Shift+F6     exec --no-startup-id ./.scripts/configFile i3blocks
+bindsym $mod+F7           exec --no-startup-id gnome-terminal -- nano ~/configs/bashrc
+
+# Spotify (spotify-cli) commands
+bindsym $mod+F9           exec --no-startup-id spotifycli --prev
+bindsym $mod+F10          exec --no-startup-id spotifycli --playpause
+bindsym $mod+F11          exec --no-startup-id spotifycli --next
+
 
 # i3-gaps settings
 bindsym $mod+i            gaps inner current plus  5
-bindsym $mod+Shift+i      gaps inner current minus 5 
+bindsym $mod+Shift+i      gaps inner current minus 5
 bindsym $mod+o            gaps outer current plus  5
 bindsym $mod+Shift+o      gaps outer current minus 5
 
@@ -117,24 +129,29 @@ bindsym $mod+Return       exec i3-sensible-terminal
 bindsym $mod+d            exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 
+# Anonsurf
+# Requires user host = (root) NOPASSWD: path/to/anonsurf
+bindsym $mod+a            exec --no-startup-id "sudo anonsurf start; notify-send 'Connecting to Tor' -t 800" 
+bindsym $mod+Shift+a      exec --no-startup-id "sudo anonsurf stop; notify-send 'Disconnecting from Tor' -t 800" 
 
-# Assign workspace, some don't work :/
-assign [class="vscode"]          1
-assign [class="calibre"]         2
-assign [class="g-calendar"]      3
-assign [class="mailspring"]      3
-assign [class="signal-desktop"]  3
-assign [class="spotify"]         4
+# Connect/disconnect ProtonVPN connection in background
+# Requires user host = (root) NOPASSWD: path/to/protonvpn-cli
+bindsym $mod+p            exec --no-startup-id "notify-send 'Toggling ProtonVPN' -t 800; ./.scripts/proton-toggle"
+
+# Screenshot bindings
+bindsym $mod+Print        exec --no-startup-id maim full-screenshot-$(date '+%y%m%d-%H%M-%S').png
+# selection
+bindsym $mod+Shift+Print  exec --no-startup-id maim -s > partial-screenshot-$(date '+%y%m%d-%H%M-%S').png 
 
 # Bindings to my programs
 bindsym Mod1+c            exec calibre
 bindsym Mod1+f            exec firefox
-bindsym Mod1+g            exec /snap/bin/g-calendar
+bindsym Mod1+g            exec g-calendar
 bindsym Mod1+Shift+g      exec firefox github.com/thewinterwolf220
 bindsym Mod1+i            exec intellij-idea-community
 bindsym Mod1+k            exec keepassxc
 bindsym Mod1+l            exec libreoffice
-bindsym Mod1+m            exec /snap/bin/mailspring
+bindsym Mod1+m            exec mailspring
 bindsym Mod1+n            exec nautilus
 bindsym Mod1+p            exec pycharm-community
 bindsym Mod1+Shift+p      exec firefox protonmail.com
@@ -142,21 +159,18 @@ bindsym Mod1+r            exec gnome-terminal -- ranger
 bindsym Mod1+s            exec spotify
 bindsym Mod1+Shift+s      exec signal-desktop
 bindsym Mod1+t            exec torbrowser-launcher
-bindsym Mod1+v            exec /snap/bin/vscode
+bindsym Mod1+v            exec vscode
 bindsym Mod1+Shift+v      exec virtualbox
+bindsym Mod1+w            exec "notify-send 'web development mode'; ~/.scripts/'web-development-mode'"
 bindsym Mod1+y            exec firefox youtube.com
 
-# Connect/disconnect ProtonVPN connection in background
-# Requires user host = (root) NOPASSWD: path/to/protonvpn-cli 
-bindsym $mod+p            exec --no-startup-id gnome-terminal -- sudo protonvpn-cli --fastest-connect 
-bindsym $mod+Shift+p      exec --no-startup-id gnome-terminal -- sudo protonvpn-cli -d
-
 # Set wallpaper
-exec --no-startup-id feh --bg-scale ~/cool-wallpapers/waves_aerial_view_water.jpg
+exec_always --no-startup-id feh --bg-scale ~/MEGAsync/wallpapers/mountain.jpg
 
 # Start Mega daemon and desktop
 exec --no-startup-id megasync
 
 # Loads changes in this file
-exec --no-startup-id cd configs/i3-config ; ag -l | entr cp config ~/.config/i3/config
-exec --no-startup-id cd configs/i3-config ; ag -l | entr i3 reload
+exec_always --no-startup-id cd ~/configs/i3-config ; ag -l | entr cp config ~/.config/i3/config
+exec_always --no-startup-id cd ~/configs/ ; ag -l | entr cp i3blocks.conf ~/.config/i3blocks/i3blocks.conf
+exec_always --no-startup-id cd ~/configs/ ; ag -l | entr cp bashrc ~/.bashrc

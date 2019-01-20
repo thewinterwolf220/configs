@@ -125,13 +125,15 @@ alias song-dl='youtube-dl --extract-audio --audio-format mp3'
 alias n='nano'
 alias v='vim'
 # Git aliases
-alias gst='git status'
-alias gpu='git push'
-alias gco='git commit -m'
-alias gad='git add .'
+alias status='git status'
+alias push='git push'
+alias commit='git commit -m'
+alias add='git add .'
+alias clone='git clone'
+alias pull='git pull'
 
 export TERMINAL='gnome-terminal'
-export PROJECTS=/home/phoenix/IdeaProjects
 export I3CONF=$HOME/.config/i3/config
 export I3BLOCKS=/etc/i3blocks.conf
 export SCRIPTSDIR=/home/phoenix/.scripts
+
