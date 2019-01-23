@@ -12,8 +12,13 @@ bar {
 	modifier        None
 }
 
+client.focused #FFFFFF #551A8B #000088 #00C1FF
+client.focused_inactive #2C2C2C #2C2C2C #ffffff #2C2C2C
+client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
+client.urgent #00C1FF #00C1FF #000088 #00C1FF
+
 # i3-gaps conf
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 gaps inner      20
 gaps outer      10
 smart_borders   on
@@ -107,10 +112,13 @@ bindsym $mod+F3           exec --no-startup-id source .bashrc
 
 # Enter editing mode, edit repo file, loads changes in .config/i3/config   
 bindsym $mod+F5           exec --no-startup-id gnome-terminal -- nano ~/configs/i3-config/config
-bindsym $mod+Shift+F5     exec --no-startup-id ./.scripts/configFile config
+bindsym $mod+Shift+F5     exec --no-startup-id ./.scripts/text2PDFshow ~/.config/i3/config
+
 bindsym $mod+F6           exec --no-startup-id gnome-terminal -- nano ~/configs/i3blocks.conf
-bindsym $mod+Shift+F6     exec --no-startup-id ./.scripts/configFile i3blocks
+bindsym $mod+Shift+F6     exec --no-startup-id ./.scripts/text2PDFshow ~/.config/i3blocks/i3blocks.conf
+
 bindsym $mod+F7           exec --no-startup-id gnome-terminal -- nano ~/configs/bashrc
+bindsym $mod+Shift+F7     exec --no-startup-id ./.scripts/text2PDFshow ~/.bashrc
 
 # Spotify (spotify-cli) commands
 bindsym $mod+F9           exec --no-startup-id spotifycli --prev
@@ -140,7 +148,7 @@ bindsym $mod+p            exec --no-startup-id "notify-send 'Toggling ProtonVPN'
 
 # Screenshot bindings
 bindsym $mod+Print        exec --no-startup-id maim full-screenshot-$(date '+%y%m%d-%H%M-%S').png
-# selection
+# with screen selection
 bindsym $mod+Shift+Print  exec --no-startup-id maim -s > partial-screenshot-$(date '+%y%m%d-%H%M-%S').png 
 
 # Bindings to my programs
@@ -164,13 +172,12 @@ bindsym Mod1+Shift+v      exec virtualbox
 bindsym Mod1+w            exec "notify-send 'web development mode'; ~/.scripts/'web-development-mode'"
 bindsym Mod1+y            exec firefox youtube.com
 
-# Set wallpaper
+exec        --no-startup-id megasync
 exec_always --no-startup-id feh --bg-scale ~/MEGAsync/wallpapers/mountain.jpg
+exec_always --no-startup-id exec compton -c -config~/.config/compton/compton.conf
 
-# Start Mega daemon and desktop
-exec --no-startup-id megasync
-
-# Loads changes in this file
 exec_always --no-startup-id cd ~/configs/i3-config ; ag -l | entr cp config ~/.config/i3/config
 exec_always --no-startup-id cd ~/configs/ ; ag -l | entr cp i3blocks.conf ~/.config/i3blocks/i3blocks.conf
 exec_always --no-startup-id cd ~/configs/ ; ag -l | entr cp bashrc ~/.bashrc
+exec_always --no-startup-id cd ~/configs/ranger ; ag -l | entr cp * ~/.config/ranger/
+

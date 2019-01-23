@@ -1,0 +1,50 @@
+shell s
+shell m
+copy
+ sh
+shell tar -xvf spark-2.4.0-bin-hadoop2.7\(2\).tgz
+copy 
+rename dragon_starry_sky.jpg
+rename Programming Collective Intelligence.pdf
+ touch s
+open_wit
+rename Nietzsche and The Human Animal.webm
+rename pg38145-images.epub
+find 
+rename Human, All Too Human.epub
+shell 
+rename How to Read a Person Like a Book.pdf
+ file
+ !file
+ shell file
+
+shell mupdf
+open_with mupdf
+ shell mupdf "Human, All Too Human.epub "
+open_with 
+rename 
+rename Nietzsche and Morality - The Higher Man and The Herd-tE67Ye91Ii0.mkv
+rename Nietzsche and Morality.mkv
+rename The Psychology of Self-Transformation.webm
+rename Tangerine Dream - Love On A Real Train New Version.mp3
+rename Tangerine Dream - Love On A Real Train.mp3
+ shell youtube-dl -x --audio-format mp3 https://www.youtube.com/watch?v=j3X-VqqMdUw & 
+rename Phaedra.mp3
+rename Tangerine - Phaedra.mp3
+rename Better Health: Mouth Breathing vs. Nasal Breathing.mkv
+rename LESS Breath - Better Health _ Mouth Breathing vs. Nasal Breathing-wgwxn9mRpAY.en.vtt
+rename Mouth Breathing vs. Nasal Breathing.en.vtt
+rename Mouth Breathing vs. Nasal Breathing.mkv
+rename The Oxygen Advantage.pdf
+rename The Oxygen Advantage.epub
+ open_with mpv
+shell
+rename Mac Quayle - 3.0_x-one2blame.fyc.mp3
+rename Mac Quayle - 2.8 2-Ph4Se.Vox.mp3
+rename Tangerine Dream - Phaedra.mp3
+open_with zathura
+rename Maxence Cyrin - Where Is My Mind.mp3
+rename toDownload.txt
+rename Mr Robot Main Theme.mp3
+rename Mr Robot Theme Song Mix.mp3
+delete

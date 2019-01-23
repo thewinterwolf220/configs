@@ -132,8 +132,13 @@ alias add='git add .'
 alias clone='git clone'
 alias pull='git pull'
 
+# Apt aliases
+alias install='sudo apt install'
+alias update='sudo apt update'
+alias upgrade='sudo apt upgrade'
+
 export TERMINAL='gnome-terminal'
 export I3CONF=$HOME/.config/i3/config
 export I3BLOCKS=/etc/i3blocks.conf
 export SCRIPTSDIR=/home/phoenix/.scripts
-
+export RANGER_LOAD_DEFAULT_RC=FALSE
