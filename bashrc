@@ -118,12 +118,16 @@ fi
 
 # My changes 
 alias weather='curl wttr.in/palermo'
-alias r='ranger'
 alias gnome-control-center='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
 alias scanimage='scanimage -d epson2:libusb:001:009 '
 alias song-dl='youtube-dl --extract-audio --audio-format mp3'
+
 alias n='nano'
+alias r='ranger'
+alias u='urxvt &'
 alias v='vim'
+alias x='xrdb -merge ~/.Xresources'
+
 # Git aliases
 alias status='git status'
 alias push='git push'
@@ -136,6 +140,7 @@ alias pull='git pull'
 alias install='sudo apt install'
 alias update='sudo apt update'
 alias upgrade='sudo apt upgrade'
+
 
 export TERMINAL='gnome-terminal'
 export I3CONF=$HOME/.config/i3/config

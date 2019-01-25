@@ -106,7 +106,6 @@ bindsym $mod+F1           restart
 # reloads i3 config file, use this for changes to this file
 bindsym $mod+F2           reload
 #
-bindsym $mod+F3           exec --no-startup-id source .bashrc
 
 
 # Enter editing mode, edit repo file, loads changes in .config/i3/config   
