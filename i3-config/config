@@ -21,7 +21,6 @@ client.urgent #00C1FF #00C1FF #000088 #00C1FF
 for_window [class="^.*"] border pixel 2
 gaps inner      20
 gaps outer      10
-smart_borders   on
 
 # change focus
 bindsym $mod+h            focus left
