@@ -46,7 +46,7 @@ bindsym $mod+8            workspace 8
 bindsym $mod+9            workspace 9
 bindsym $mod+0            workspace 10
 
-# move focused container to workspace
+Met# move focused container to workspace
 bindsym $mod+Shift+1      move container to workspace 1
 bindsym $mod+Shift+2      move container to workspace 2
 bindsym $mod+Shift+3      move container to workspace 3
@@ -87,7 +87,7 @@ bindsym $mod+e            layout   toggle split
 bindsym $mod+space        floating toggle         
 
 # exit i3
-bindsym $mod+Shift+e      exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'gnome-terminal -- i3-msg exit'"
+bindsym $mod+Shift+e      exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock screen
 bindsym $mod+Shift+x      exec i3lock
@@ -107,6 +107,7 @@ bindsym $mod+F1           restart
 bindsym $mod+F2           reload
 #
 
+
 # Enter editing mode, edit repo file, loads changes in .config/i3/config   
 bindsym $mod+F5           exec --no-startup-id gnome-terminal -- nano ~/configs/i3-config/config
 bindsym $mod+Shift+F5     exec --no-startup-id ./.scripts/text2PDFshow ~/.config/i3/config
@@ -122,6 +123,7 @@ bindsym $mod+F9           exec --no-startup-id spotifycli --prev
 bindsym $mod+F10          exec --no-startup-id spotifycli --playpause
 bindsym $mod+F11          exec --no-startup-id spotifycli --next
 
+
 # i3-gaps settings
 bindsym $mod+i            gaps inner current plus  5
 bindsym $mod+Shift+i      gaps inner current minus 5
@@ -135,12 +137,12 @@ bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 
 # Anonsurf
 # Requires user host = (root) NOPASSWD: path/to/anonsurf
-bindsym $mod+a            exec --no-startup-id sudo anonsurf start 
-bindsym $mod+Shift+a      exec --no-startup-id sudo anonsurf stop 
+bindsym $mod+a            exec --no-startup-id "sudo anonsurf start; notify-send 'Connecting to Tor' -t 800" 
+bindsym $mod+Shift+a      exec --no-startup-id "sudo anonsurf stop; notify-send 'Disconnecting from Tor' -t 800" 
 
 # Connect/disconnect ProtonVPN connection in background
 # Requires user host = (root) NOPASSWD: path/to/protonvpn-cli
-bindsym $mod+p            exec --no-startup-id ./.scripts/proton-toggle
+bindsym $mod+p            exec --no-startup-id "notify-send 'Toggling ProtonVPN' -t 800; ./.scripts/proton-toggle"
 
 # Screenshot bindings
 bindsym $mod+Print        exec --no-startup-id maim full-screenshot-$(date '+%y%m%d-%H%M-%S').png
@@ -153,7 +155,6 @@ bindsym Mod1+f            exec firefox
 bindsym Mod1+g            exec g-calendar
 bindsym Mod1+Shift+g      exec firefox github.com/thewinterwolf220
 bindsym Mod1+i            exec intellij-idea-community
-bindsym Mod1+j            exec mupdf ~/Programming\ Books/JavaScript/Eloquent\ JavaScript.epub
 bindsym Mod1+k            exec keepassxc
 bindsym Mod1+l            exec libreoffice
 bindsym Mod1+m            exec mailspring
@@ -166,13 +167,15 @@ bindsym Mod1+Shift+s      exec signal-desktop
 bindsym Mod1+t            exec torbrowser-launcher
 bindsym Mod1+v            exec vscode
 bindsym Mod1+Shift+v      exec virtualbox
+bindsym Mod1+w            exec "notify-send 'web development mode'; ~/.scripts/'web-development-mode'"
 bindsym Mod1+y            exec firefox youtube.com
 
 exec        --no-startup-id megasync
-exec_always --no-startup-id ~/.fehbg
+exec_always --no-startup-id feh --bg-scale ~/MEGAsync/wallpapers/mountain.jpg
 exec_always --no-startup-id exec compton -c -config~/.config/compton/compton.conf
 
 exec_always --no-startup-id cd ~/configs/i3-config ; ag -l | entr cp config ~/.config/i3/config
 exec_always --no-startup-id cd ~/configs/ ; ag -l | entr cp i3blocks.conf ~/.config/i3blocks/i3blocks.conf
 exec_always --no-startup-id cd ~/configs/ ; ag -l | entr cp bashrc ~/.bashrc
 exec_always --no-startup-id cd ~/configs/ranger ; ag -l | entr cp * ~/.config/ranger/
+
