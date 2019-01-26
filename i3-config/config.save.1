@@ -27,14 +27,14 @@ bindsym $mod+h            focus left
 bindsym $mod+j            focus down
 bindsym $mod+k            focus up
 bindsym $mod+l            focus right
-
-# move focused window
+  
+# move focused window  
 bindsym $mod+Shift+h      move left
 bindsym $mod+Shift+j      move down
 bindsym $mod+Shift+k      move up
 bindsym $mod+Shift+l      move right
-
-# switch to workspace
+  
+# switch to workspace  
 bindsym $mod+1            workspace 1
 bindsym $mod+2            workspace 2
 bindsym $mod+3            workspace 3
@@ -65,33 +65,32 @@ mode "resize" {
     bindsym k             resize shrink height 10 px or 10 ppt
     bindsym l             resize grow   width  10 px or 10 ppt
     bindsym Escape        mode "default"
-}
+}  
 bindsym $mod+r            mode "resize"
 
 # Pulse Audio controls
-bindsym $mod+Up           exec --no-startup-id pactl set-sink-volume 1    +5%
-bindsym $mod+Down         exec --no-startup-id pactl set-sink-volume 1    -5%
-bindsym $mod+Shift+space  exec --no-startup-id pactl set-sink-mute   1 toggle
+bindsym $mod+Up           exec --no-startup-id pactl set-sink-volume 1    +5%     
+bindsym $mod+Down         exec --no-startup-id pactl set-sink-volume 1    -5%     
+bindsym $mod+Shift+space  exec --no-startup-id pactl set-sink-mute   1 toggle  
 
 # toggle split orientation
-bindsym $mod+t            split      toggle
-
+bindsym $mod+t            split      toggle  
 # toggle fullscreen
-bindsym $mod+f            fullscreen toggle
+bindsym $mod+f            fullscreen toggle  
 
 # change container layout
 bindsym $mod+s            layout   stacking
 bindsym $mod+w            layout   tabbed
-bindsym $mod+e            layout   toggle split
+bindsym $mod+e            layout   toggle split   
 
-# tiling / floating
-bindsym $mod+space        floating toggle
+# tiling / floating  
+bindsym $mod+space        floating toggle         
 
 # exit i3
 bindsym $mod+Shift+e      exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'gnome-terminal -- i3-msg exit'"
 
 # lock screen
-bindsym $mod+Shift+x      exec i3lock -c 000000
+bindsym $mod+Shift+x      exec i3lock
 
 # shutdown the machine
 bindsym $mod+Shift+s      exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut.' -b 'Yes, shutdown' 'init 0'"
@@ -104,9 +103,9 @@ bindsym $mod+q            kill
 
 # preserves layout/session
 bindsym $mod+F1           restart
-
 # reloads i3 config file, use this for changes to this file
 bindsym $mod+F2           reload
+#
 
 # Enter editing mode, edit repo file, loads changes in .config/i3/config   
 bindsym $mod+F5           exec --no-startup-id gnome-terminal -- nano ~/configs/i3-config/config
@@ -134,9 +133,10 @@ bindsym $mod+Return       exec i3-sensible-terminal
 bindsym $mod+d            exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 
-# Anonsurf: requires user host = (root) NOPASSWD: path/to/anonsurf
-bindsym $mod+a            exec --no-startup-id sudo anonsurf start
-bindsym $mod+Shift+a      exec --no-startup-id sudo anonsurf stop
+# Anonsurf
+# Requires user host = (root) NOPASSWD: path/to/anonsurf
+bindsym $mod+a            exec --no-startup-id sudo anonsurf start 
+bindsym $mod+Shift+a      exec --no-startup-id sudo anonsurf stop 
 
 # Connect/disconnect ProtonVPN connection in background
 # Requires user host = (root) NOPASSWD: path/to/protonvpn-cli
@@ -145,7 +145,7 @@ bindsym $mod+p            exec --no-startup-id ./.scripts/proton-toggle
 # Screenshot bindings
 bindsym $mod+Print        exec --no-startup-id maim full-screenshot-$(date '+%y%m%d-%H%M-%S').png
 # with screen selection
-bindsym $mod+Shift+Print  exec --no-startup-id maim -s > partial-screenshot-$(date '+%y%m%d-%H%M-%S').png
+bindsym $mod+Shift+Print  exec --no-startup-id maim -s > partial-screenshot-$(date '+%y%m%d-%H%M-%S').png 
 
 # Bindings to my programs
 bindsym Mod1+c            exec calibre
@@ -169,10 +169,11 @@ bindsym Mod1+Shift+v      exec virtualbox
 bindsym Mod1+y            exec firefox youtube.com
 
 exec        --no-startup-id megasync
-exec_always --no-startup-id feh --bg-scale ~/MEGAsync/wallpapers/northern_lights.jpg
+exec_always --no-startup-id feh --bg-scale ~/MEGAsync/wallpapers
+/northern_lights.jpg
 exec_always --no-startup-id exec compton -c -config~/.config/compton/compton.conf
 
-exec_always --no-startup-id cd ~/configs/i3-config ; ag -l | entr cp config             ~/.config/i3/config
-exec_always --no-startup-id cd ~/configs/          ; ag -l | entr cp i3blocks.conf      ~/.config/i3blocks/i3blocks.conf
-exec_always --no-startup-id cd ~/configs/          ; ag -l | entr cp bashrc             ~/.bashrc
-exec_always --no-startup-id cd ~/configs/ranger    ; ag -l | entr cp *                  ~/.config/ranger/
+exec_always --no-startup-id cd ~/configs/i3-config ; ag -l | entr cp config ~/.config/i3/config
+exec_always --no-startup-id cd ~/configs/ ; ag -l | entr cp i3blocks.conf ~/.config/i3blocks/i3blocks.conf
+exec_always --no-startup-id cd ~/configs/ ; ag -l | entr cp bashrc ~/.bashrc
+exec_always --no-startup-id cd ~/configs/ranger ; ag -l | entr cp * ~/.config/ranger/
