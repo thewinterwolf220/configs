@@ -4,7 +4,7 @@ font    pango:Arial 13
 
 # bar conf
 bar {
-	font            pango:Helvetica 12
+	font            pango:Inconsolata 11.5
 	status_command  i3blocks -c ~/.config/i3blocks/i3blocks.conf
 	position        top
 	mode            dock
@@ -133,7 +133,7 @@ bindsym $mod+Return       exec i3-sensible-terminal
 bindsym $mod+d            exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 
-bindsym $mod+u		  exec --no-startup-id gnome-terminal -- sudo ./.scripts/updateChanges
+bindsym $mod+u		      exec --no-startup-id sudo ./.scripts/updateChanges
 
 # Anonsurf: requires user host = (root) NOPASSWD: path/to/anonsurf
 bindsym $mod+a            exec --no-startup-id sudo anonsurf start
@@ -145,7 +145,7 @@ bindsym $mod+p            exec --no-startup-id ./.scripts/proton-toggle
 
 # Screenshot bindings
 bindsym $mod+Print        exec --no-startup-id maim full-screenshot-$(date '+%y%m%d-%H%M-%S').png
-# with screen selection
+# W/ screen selection
 bindsym $mod+Shift+Print  exec --no-startup-id maim -s > partial-screenshot-$(date '+%y%m%d-%H%M-%S').png
 
 # Bindings to my programs
