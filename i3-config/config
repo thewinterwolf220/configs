@@ -170,6 +170,5 @@ bindsym Mod1+Shift+v      exec virtualbox
 bindsym Mod1+y            exec firefox youtube.com
 
 exec        --no-startup-id megasync
-exec_always --no-startup-id feh --bg-scale ~/MEGAsync/wallpapers/northern_lights.jpg
-exec_always --no-startup-id exec compton -c -config~/.config/compton/compton.conf
-
+exec_always --no-startup-id ./.fehbg
+exec_always --no-startup-id compton -c --config ~/.config/compton/compton.conf
