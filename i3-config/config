@@ -149,10 +149,11 @@ bindsym $mod+Print        exec --no-startup-id maim full-screenshot-$(date '+%y%
 bindsym $mod+Shift+Print  exec --no-startup-id maim -s > partial-screenshot-$(date '+%y%m%d-%H%M-%S').png
 
 # Bindings to my programs
-bindsym Mod1+c            exec calibre
+bindsym Mod1+a            exec firefox codeacademy.com
+bindsym Mod1+c            exec firefox cloud.woelkli.com/apps/calendar/
+bindsym Mod1+Shift+c      exec calibre
 bindsym Mod1+f            exec firefox
-bindsym Mod1+g            exec g-calendar
-bindsym Mod1+Shift+g      exec firefox github.com/thewinterwolf220
+bindsym Mod1+g            exec firefox github.com/thewinterwolf220
 bindsym Mod1+i            exec intellij-idea-community
 bindsym Mod1+j            exec firefox eloquentjavascript.net
 bindsym Mod1+k            exec keepassxc
@@ -171,5 +172,4 @@ bindsym Mod1+y            exec firefox youtube.com
 
 exec        --no-startup-id megasync
 exec_always --no-startup-id ./.fehbg
-exec_always --no-startup-id compton -c 
-#--config ~/.config/compton/compton.conf
+exec_always --no-startup-id compton -c --config ~/.config/compton/compton.conf
