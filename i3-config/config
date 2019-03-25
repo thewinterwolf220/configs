@@ -17,7 +17,7 @@ client.unfocused #2C2C2C #2C2C2C #ffffff #2C2C2C
 client.urgent #00C1FF #00C1FF #000088 #00C1FF
 
 # i3-gaps conf
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 gaps inner      20
 gaps outer      10
 
@@ -70,7 +70,7 @@ bindsym $mod+r            mode "resize"
 # Pulse Audio controls
 bindsym $mod+Up           exec --no-startup-id pactl set-sink-volume 1    +5%
 bindsym $mod+Down         exec --no-startup-id pactl set-sink-volume 1    -5%
-bindsym $mod+Shift+space  exec --no-startup-id pactl set-sink-mute   1 toggle
+bindsym $mod+m            exec --no-startup-id pactl set-sink-mute   1 toggle
 
 # toggle split orientation
 bindsym $mod+t            split      toggle
@@ -84,7 +84,7 @@ bindsym $mod+w            layout   tabbed
 bindsym $mod+e            layout   toggle split
 
 # tiling / floating
-bindsym $mod+space        floating toggle
+bindsym $mod+Shift+space  floating toggle
 
 # exit i3
 bindsym $mod+Shift+e      exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'gnome-terminal -- i3-msg exit'"
@@ -130,7 +130,7 @@ bindsym $mod+Shift+o      gaps outer current minus 5
 
 bindsym $mod+Return       exec i3-sensible-terminal
 
-bindsym $mod+d            exec --no-startup-id rofi -show run
+bindsym $mod+space        exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d      exec --no-startup-id i3-dmenu-desktop
 
 bindsym $mod+u		      exec --no-startup-id sudo ./.scripts/updateChanges
@@ -166,7 +166,7 @@ bindsym Mod1+r            exec gnome-terminal -- ranger
 bindsym Mod1+s            exec spotify
 bindsym Mod1+Shift+s      exec signal-desktop
 bindsym Mod1+t            exec torbrowser-launcher
-bindsym Mod1+v            exec vscode
+bindsym Mod1+v            exec code
 bindsym Mod1+Shift+v      exec virtualbox
 bindsym Mod1+y            exec firefox youtube.com
 
